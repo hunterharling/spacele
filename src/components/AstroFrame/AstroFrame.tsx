@@ -6,67 +6,20 @@ import Search from "../Search/Search";
 // Renders a sky-map iframe of dso object
 const AstroFrame = () => {
   const objIndex = Math.floor(Math.random() * 222);
-  const zoom = 7;
-
-  const [src, setSrc] = useState("");
 
   const [obj, setObj] = useState(astrodb[objIndex]);
-  const api = `https://simbad.u-strasbg.fr/simbad/sim-id?Ident=${obj.split(" ").join("+")}&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id`;
 
   useEffect(() => {
     console.log(obj);
-    if (!obj.includes("NGC")) {
-      const url = `https://server1.sky-map.org/skywindow?object=${obj.split(" ").join("")}&zoom=${zoom}&img_source=SDSS`;
-      console.log(url)
-      setSrc(url);
-    }
-    else {
-      fetch(api)
-        .then(function (response) {
-          return response.text();
-        }).then(function (data) {
-          console.log(data.split(`COLOR"`)[1])
-          let coords = data.split('Color">')[1].split('<')[0];
-          let ra: number;
-          let dec: number;
-
-          ra = parseInt(
-            coords.split(" ")[0]
-          ) + parseInt(
-            coords.split(" ")[1]) / 60 + parseInt(
-              coords.split(" ")[2]) / 3600;
-          if (coords.includes("+")) {
-            dec = parseInt(
-              coords.split("+")[1].split(" ")[0]
-            ) + parseInt(
-              coords.split("+")[1].split(" ")[1]) / 60 + parseInt(
-                coords.split("+")[1].split(" ")[2]) / 3600;
-          }
-          else {
-            dec = parseInt(
-              coords.split("-")[1].split(" ")[0]
-            ) + parseInt(
-              coords.split("-")[1].split(" ")[1]) / 60 + parseInt(
-                coords.split("-")[1].split(" ")[2]) / 3600;;
-          }
-
-          console.log(ra + " " + dec);
-
-          const url = `https://server1.sky-map.org/skywindow?zoom=${zoom}&img_source=SDSS&ra=${ra}&de=${dec}`;
-
-          setSrc(url);
-        });
-    }
+    // Necessary to initiate aladin 
+    eval(`var aladin = A.aladin('#aladin-lite-div', { survey: "P/DSS2/color", fov: 1, target: "${obj}" });`);
   }, []);
+
   return (
     <>
       <div className="wrapper">
         <div className="screen"></div>
-        {src !== "" ? <iframe src={src}></iframe > : null}
-        <div className="left"></div>
-        <div className="right"></div>
-        <div className="bottom"></div>
-        <div className="top"></div>
+        <div id="aladin-lite-div" ></div>
       </div>
       <Search obj={obj} />
     </>
