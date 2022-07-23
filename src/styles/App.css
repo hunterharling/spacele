@@ -44,8 +44,10 @@ body {
 
 h3 {
   color: var(--dark-text);
-  margin-bottom: 0;
-  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-size: 17px;
+  font-weight: 400;
 }
 
 .container {
@@ -53,23 +55,6 @@ h3 {
   width: max-content;
   min-height: calc(100% - 200px);
   padding-bottom: 60px;
-}
-
-.footer{
-  height: 60px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid rgb(66, 66, 66);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  column-gap: 10px;
-}
-
-.footer span {
-  color: var(--dark-text);
 }
 
 @media only screen and (max-width: 400px) {
