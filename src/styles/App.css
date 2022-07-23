@@ -1,0 +1,53 @@
+:root {
+  --background: rgb(24, 24, 26);
+  --dark-text: rgb(192, 192, 192);
+}
+
+.App {
+  text-align: center;
+}
+
+body {
+  background-color: var(--background);
+}
+
+.header {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid rgb(66, 66, 66);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.header h1 {
+  font-size: 22px;
+}
+
+.btns {
+  position: absolute;
+  right: 0;
+  margin-right: 25px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.btns button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+}
+
+h3 {
+  color: var(--dark-text);
+  margin-bottom: 0;
+  margin-top: 40px;
+}
+
+.container {
+  margin: 0 auto;
+  width: max-content;
+}

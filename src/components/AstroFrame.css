@@ -1,0 +1,55 @@
+iframe {
+  border: none;
+}
+
+table, iframe #img_button_max, iframe #sl0base {
+  display: none;
+}
+
+.wrapper, iframe {
+  width: 450px;
+  height: 450px;
+  position: relative;
+  border-radius: 15px;
+}
+
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: transparent;
+}
+
+.bottom, .right, .top, .left {
+  position: absolute;
+  background-color: var(--background);
+}
+
+.bottom, .top {
+  width: 100%;
+  height: 10%;
+}
+
+.right, .left {
+  height: 100%;
+  width: 10%;
+}
+
+.left, .top {
+  left: 0;
+  top: 0;
+}
+
+.right, .bottom {
+  right: 0;
+  bottom: 0;
+}
+
+
+@media only screen and (max-width: 450px) {
+  .wrapper, iframe {
+    width: 290px;
+    height: 290px;
+  }
+}
