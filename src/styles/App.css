@@ -3,8 +3,9 @@
   --dark-text: rgb(192, 192, 192);
 }
 
-.App {
+.App, #root, body, html {
   text-align: center;
+  height: 100%;
 }
 
 body {
@@ -50,4 +51,44 @@ h3 {
 .container {
   margin: 0 auto;
   width: max-content;
+  min-height: calc(100% - 200px);
+}
+
+.footer{
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid rgb(66, 66, 66);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 10px;
+}
+
+.footer span {
+  color: var(--dark-text);
+}
+
+@media only screen and (max-width: 400px) {
+  h1 {
+    font-size: 17px !important;
+  }
+
+  h3 {
+    max-width: 290px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .info {
+    display: none;
+  }
+
+  .container {
+    min-height: calc(100% - 123px);
+  }
 }
