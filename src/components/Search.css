@@ -7,7 +7,7 @@ input, .selection, .result {
   color: var(--dark-text);
   text-align: center;
   padding: 5px 5px;
-  margin: 10px auto;
+  margin: 5px auto;
   outline: none !important;
   display: flex;
   justify-content: center;
