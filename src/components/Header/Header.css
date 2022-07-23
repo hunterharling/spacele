@@ -9,18 +9,21 @@ a {
 .statistics, .information {
   position: fixed;
   width: 100%;
-  z-index: 15;
+  z-index: 115;
   top: 0;
   background-color: var(--background);
   height: 100vh;
+  text-align: left;
+  font-size: 15px;
 }
 
 .statistics .h3, .information .h3 {
+  text-align: center;
   margin: 5px 0;
   padding-bottom: 5px;
   border-bottom: 1px solid var(--dark-text);
   width: 100vw !important;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .x {
@@ -35,12 +38,14 @@ a {
 
 .statistics span {
   font-size: 22px;
+  color: rgb(62, 123, 255);
 }
 
 .stat {
   width: 90px;
   height: 60px;
   margin-top: 15px;
+  text-align: center;
 }
 
 .wrap {
@@ -55,4 +60,10 @@ a {
 .information .content {
   max-width: 400px;
   margin: 10px auto;
+}
+
+.divider {
+  margin: 15px 0;
+  padding-top: 15px;
+  border-top: 1px solid var(--dark-text);
 }

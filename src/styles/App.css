@@ -52,6 +52,7 @@ h3 {
   margin: 0 auto;
   width: max-content;
   min-height: calc(100% - 200px);
+  padding-bottom: 60px;
 }
 
 .footer{

@@ -19,24 +19,32 @@ const Header = () => {
       {info &&
         <div className="information">
           <div className="h3">
-            How to Play
+            HOW TO PLAY
             <div className="x" onClick={() => showInfo(!info)}>
               &times;
             </div>
           </div>
           <div className="content">
             <p>
-              This is an app like Wordle,
+              This is an app like {" "}
+              <a 
+                rel="noopener" 
+                target="_blank" 
+                href="https://www.nytimes.com/games/wordle/index.html">
+                Wordle
+              </a>,
               but for identifying galaxies and nebulae in the night sky.
               <br /><br />
               To play, enter your guess in the text box,
               and choose from the dropdown that appears.
               You have six guesses before the deep sky object is revealed.
             </p>
-            <br />
+            <div className="divider">A new deep sky object is selected each day.</div>
             <div className="divider">
-              This was made by {" "}
-              <a rel="noopener" target="_blank" 
+              This app was made by {" "}
+              <a 
+                rel="noopener" 
+                target="_blank" 
                 href="https://github.com/hunterharling">
                 @hunterharling
               </a>
@@ -64,7 +72,11 @@ const Header = () => {
             </div>
             <div className="stat">
               <span>35</span>
-              <p>Attempts today</p>
+              <p>Attempts Today</p>
+            </div>
+            <div className="stat">
+              <span>35</span>
+              <p>Total Attempts</p>
             </div>
           </div>
         </div>}
