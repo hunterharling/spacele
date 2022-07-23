@@ -1,7 +1,7 @@
 import "./AstroFrame.css";
-import astrodb from "../astrodb"
+import astrodb from "../../astrodb"
 import { useEffect, useState } from "react";
-import Search from "./Search";
+import Search from "../Search/Search";
 
 // Renders a sky-map iframe of dso object
 const AstroFrame = () => {
@@ -10,10 +10,11 @@ const AstroFrame = () => {
 
   const [src, setSrc] = useState("");
 
-  const obj = astrodb[objIndex];
+  const [obj, setObj] = useState(astrodb[objIndex]);
   const api = `https://simbad.u-strasbg.fr/simbad/sim-id?Ident=${obj.split(" ").join("+")}&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id`;
 
   useEffect(() => {
+    console.log(obj);
     if (!obj.includes("NGC")) {
       const url = `https://server1.sky-map.org/skywindow?object=${obj.split(" ").join("")}&zoom=${zoom}&img_source=SDSS`;
       console.log(url)
@@ -24,7 +25,8 @@ const AstroFrame = () => {
         .then(function (response) {
           return response.text();
         }).then(function (data) {
-          let coords = data.split('ID="Coord"')[1].split('"')[1];
+          console.log(data.split(`COLOR"`)[1])
+          let coords = data.split('Color">')[1].split('<')[0];
           let ra: number;
           let dec: number;
 
