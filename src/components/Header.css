@@ -1,0 +1,58 @@
+.header {
+  position: relative;
+}
+
+a {
+  color: rgb(62, 123, 255);
+}
+
+.statistics, .information {
+  position: fixed;
+  width: 100%;
+  z-index: 15;
+  top: 0;
+  background-color: var(--background);
+  height: 100vh;
+}
+
+.statistics .h3, .information .h3 {
+  margin: 5px 0;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--dark-text);
+  width: 100vw !important;
+  font-size: 20px;
+}
+
+.x {
+  position: absolute;
+  font-size: 22px;
+  right: 0;
+  top: 0;
+  margin-right: 10px;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.statistics span {
+  font-size: 22px;
+}
+
+.stat {
+  width: 90px;
+  height: 60px;
+  margin-top: 15px;
+}
+
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 15px;
+  row-gap: 15px;
+  flex-wrap: wrap;
+}
+
+.information .content {
+  max-width: 400px;
+  margin: 10px auto;
+}
