@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="footer">
       Made by Hunter Harling
       <a
-        rel="noopener" 
+        rel="noopener noreferrer" 
         target="_blank"
         href="https://github.com/hunterharling/astro-guesser">
         <span>{" <"}</span>

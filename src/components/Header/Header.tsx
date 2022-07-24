@@ -28,7 +28,7 @@ const Header = () => {
             <p>
               This is an app like {" "}
               <a 
-                rel="noopener" 
+                rel="noopener noreferrer" 
                 target="_blank" 
                 href="https://www.nytimes.com/games/wordle/index.html">
                 Wordle
@@ -43,7 +43,7 @@ const Header = () => {
             <div className="divider">
               This app was made by {" "}
               <a 
-                rel="noopener" 
+                rel="noopener noreferrer" 
                 target="_blank" 
                 href="https://github.com/hunterharling">
                 @hunterharling
@@ -51,7 +51,7 @@ const Header = () => {
               <br /><br />
               GitHub repository: {" "}
               <a 
-                rel="noopener" 
+                rel="noopener noreferrer" 
                 target="_blank" 
                 href="https://github.com/hunterharling/astro-guesser">
                 Astro Guesser
