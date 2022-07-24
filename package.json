@@ -1,7 +1,14 @@
 {
-  "name": "astro-guesser",
+  "name": "astrole",
   "version": "0.1.0",
+  "description": "Wordle for Astronomy",
+  "author": "Hunter Harling",
+  "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hunterharling/astrole.git"
+  },
   "dependencies": {
     "@types/node": "^16.11.45",
     "@types/react": "^18.0.15",
