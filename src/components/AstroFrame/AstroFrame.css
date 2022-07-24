@@ -2,6 +2,21 @@
   border: none;
 }
 
+canvas {
+  border-radius: 10px;
+}
+
+.zoomPlus {
+  color: white !important;
+  background: rgb(56 56 56) !important;
+  width: 23px !important;
+  height: 23px !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .aladin-location,
 .aladin-fov,
 .aladin-gotoControl-container, 
@@ -11,8 +26,8 @@
 }
 
 .wrapper, #aladin-lite-div {
-  width: 450px;
-  height: 450px;
+  width: 400px;
+  height: 400px;
   position: relative;
   border-radius: 15px;
 }

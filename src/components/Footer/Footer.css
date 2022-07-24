@@ -3,13 +3,15 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  border-top: 1px solid rgb(66, 66, 66);
+  border-top: 1px solid var(--line-color);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   column-gap: 10px;
   padding: 0 10px;
+  z-index: 22;
+  background-color: var(--background);
 }
 
 .footer span {

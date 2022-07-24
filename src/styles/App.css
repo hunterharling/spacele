@@ -1,6 +1,7 @@
 :root {
   --background: rgb(24, 24, 26);
   --dark-text: rgb(192, 192, 192);
+  --line-color: rgb(66, 66, 66);
 }
 
 .App, #root, body, html {
@@ -10,12 +11,13 @@
 
 body {
   background-color: var(--background);
+  overflow: hidden;
 }
 
 .header {
   width: 100%;
   text-align: center;
-  border-bottom: 1px solid rgb(66, 66, 66);
+  border-bottom: 1px solid var(--line-color);
   display: flex;
   align-items: center;
   justify-content: center;
