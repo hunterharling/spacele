@@ -28,6 +28,10 @@ body {
   font-size: 22px;
 }
 
+h1 span {
+  color: rgb(47, 104, 228);
+}
+
 .btns {
   position: absolute;
   right: 0;
