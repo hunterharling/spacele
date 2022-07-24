@@ -1,7 +1,7 @@
 import astrodb from "../../astrodb";
 import Fuse from "fuse.js"
 import { useState } from "react";
-import "./Search.css";
+import "./Guesses.css";
 
 interface SearchProps {
   obj: string;

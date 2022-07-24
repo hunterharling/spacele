@@ -1,7 +1,7 @@
 import "./AstroFrame.css";
 import astrodb from "../../astrodb"
 import { useEffect } from "react";
-import Search from "../Search/Search";
+import Search from "../Guesses/Guesses";
 
 // Create offset for fixed date
 const offsetFromDate = new Date(2022, 0, 1);
