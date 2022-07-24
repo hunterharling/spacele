@@ -1,4 +1,6 @@
-const astrodb: Array<string> = [
+type AstroList = Array<string>;
+
+const ordereddb: AstroList = [
   "M 1",
   "M 2",
   "M 3",
@@ -306,5 +308,10 @@ const astrodb: Array<string> = [
   "Abell 85",
   "Abell 86",
 ];
+
+console.log(ordereddb[0]);
+
+// Randomized order
+const astrodb: AstroList = ["NGC 2438", "NGC 4216", "M 82", "Abell 42", "M 83", "NGC 3877", "Abell 47", "NGC 5907", "M 51", "NGC 2158", "Abell 12", "NGC 3675", "M 73", "Abell 22", "M 67", "NGC 6946", "M 9", "Abell 67", "NGC 2655", "M 77", "NGC 2903", "NGC 5005", "M 91", "NGC 7009", "Abell 52", "M 34", "Abell 23", "NGC 5128", "Abell 10", "NGC 281", "NGC 4631", "Abell 09", "NGC 2024", "Abell 73", "Abell 11", "M 39", "NGC 4535", "NGC 4244", "M 29", "NGC 884", "Abell 28", "NGC 2022", "Abell 72", "Abell 75", "NGC 1501", "Abell 59", "NGC 3115", "NGC 2392", "NGC 2683", "Abell 82", "M 22", "M 71", "NGC 4026", "NGC 6207", "Abell 57", "Abell 61", "NGC 3077", "M 30", "M 64", "M 2", "NGC 1535", "NGC 6819", "Abell 79", "Abell 27", "NGC 1788", "M 72", "M 16", "M 4", "NGC 6781", "M 85", "NGC 6520", "Abell 71", "NGC 7243", "M 62", "NGC 6940", "M 8", "Abell 39", "M 44", "NGC 1232", "M 20", "M 37", "Abell 03", "Abell 36", "NGC 4111", "NGC 2403", "M 19", "M 78", "NGC 3079", "M 84", "NGC 4725", "Abell 17", "Abell 15", "M 95", "Abell 01", "Abell 76", "M 93", "NGC 3384", "NGC 4699", "M 86", "Abell 44", "NGC 457", "Abell 02", "NGC 1491", "NGC 3184", "NGC 5033", "M 101", "M 60", "M 98", "NGC 1023", "Abell 64", "NGC 4605", "Abell 07", "M 59", "M 13", "Abell 05", "M 7", "NGC 4438", "M 92", "NGC 6939", "NGC 1931", "Abell 14", "M 55", "NGC 4214", "NGC 3344", "Abell 41", "Abell 48", "NGC 7129", "M 79", "M 36", "Abell 08", "NGC 6572", "M 103", "NGC 7331", "M 23", "NGC 3432", "M 100", "M 32", "Abell 63", "NGC 6445", "M 97", "NGC 6633", "M 47", "Abell 38", "Abell 53", "NGC 4656", "M 17", "Abell 70", "Abell 74", "M 45", "Abell 80", "NGC 5139", "M 76", "NGC 4494", "NGC 2244", "M 25", "M 75", "M 5", "M 26", "Abell 69", "Abell 65", "M 11", "NGC 6818", "NGC 3941", "Abell 32", "Abell 46", "M 81", "Abell 20", "M 90", "Abell 25", "NGC 1973", "Abell 04", "M 35", "M 94", "Abell 85", "M 99", "M 14", "NGC 4526", "M 18", "NGC 4762", "NGC 6992", "M 108", "Abell 56", "M 54", "Abell 26", "M 61", "Abell 68", "Abell 60", "NGC 1907", "Abell 83", "NGC 4361", "Abell 37", "NGC 6369", "Abell 29", "Abell 50", "Abell 40", "Abell 24", "NGC 3607", "NGC 936", "M 3", "M 88", "NGC 6712", "NGC 3628", "NGC 6210", "Abell 19", "M 68", "M 15", "NGC 40", "M 6", "M 31", "NGC 7209", "NGC 2194", "M 105", "M 53", "Abell 58", "M 87", "M 10", "M 33", "NGC 2841", "M 52", "NGC 4490", "M 89", "NGC 7662", "M 48", "Abell 34", "M 27", "NGC 6826", "M 104", "Abell 43", "M 70", "Abell 77", "M 63", "Abell 84", "M 40", "M 49", "NGC 7293", "M 80", "Abell 45", "Abell 49", "NGC 4388", "Abell 21", "M 41", "NGC 4274", "Abell 16", "M 107", "NGC 4449", "NGC 7000", "M 74", "M 46", "NGC 3242", "Abell 06", "NGC 2539", "Abell 13", "Abell 66", "NGC 4559", "NGC 4565", "NGC 663", "M 66", "NGC 4088", "Abell 18", "M 50", "M 109", "Abell 30", "NGC 772", "M 38", "M 65", "NGC 6503", "Abell 55", "Abell 31", "Abell 35", "Abell 62", "NGC 246", "M 102", "M 96", "M 28", "NGC 7027", "NGC 4414", "NGC 869", "M 69", "M 43", "M 42", "NGC 185", "NGC 2261", "NGC 6960", "NGC 5746", "M 24", "M 56", "M 1", "NGC 6543", "NGC 2359", "M 58", "Abell 54", "M 12", "M 110", "NGC 2440", "Abell 86", "Abell 81", "Abell 78", "Abell 33", "Abell 51", "M 106", "NGC 253", "NGC 891", "NGC 4567", "M 21", "M 57", "NGC 7789"];
 
 export default astrodb;

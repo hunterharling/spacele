@@ -1,6 +1,6 @@
 import "./AstroFrame.css";
 import astrodb from "../../astrodb"
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Search from "../Search/Search";
 
 // Create offset for fixed date
@@ -12,11 +12,10 @@ const dayOffset = msOffset / 1000 / 60 / 60 / 24;
 
 // Get new index from 0-221 each day
 const objIndex = Math.floor(dayOffset % 222);
+const obj = astrodb[objIndex];
 
 // Renders a sky-map iframe of dso object
 const AstroFrame = () => {
-  const [obj, setObj] = useState(astrodb[objIndex]);
-
   useEffect(() => {
     console.log(obj);
     // Necessary to initiate aladin sky chart
