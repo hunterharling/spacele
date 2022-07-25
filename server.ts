@@ -9,12 +9,18 @@ import "dotenv/config";
 // App
 const app = express();
 const HOST = 'localhost';
-const { PORT="3000" } = process.env
+const { PORT="3000" } = process.env;
 
 // CORS and bodyParser
-app.use(cors());
+const corsOptions = {
+  origin: process.env.url,
+  methods: ['GET', 'PUT', 'POST'],
+  allowHeaders: ['Content-Type', 'Authorization']
+};
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors(corsOptions));
 
 db.mongoose
   .connect(process.env.DB_URL).then(() => {
