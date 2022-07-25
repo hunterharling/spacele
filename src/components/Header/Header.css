@@ -12,7 +12,7 @@ a {
   z-index: 115;
   top: 0;
   background-color: var(--background);
-  height: 100vh;
+  height: calc(100vh - 60px);
   text-align: left;
   font-size: 15px;
 }
@@ -45,7 +45,7 @@ a {
 
 .stat {
   width: 90px;
-  height: 60px;
+  height: 90px;
   margin-top: 15px;
   text-align: center;
 }
@@ -57,10 +57,13 @@ a {
   column-gap: 15px;
   row-gap: 15px;
   flex-wrap: wrap;
+  padding: 10px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 .information .content {
-  max-width: 400px;
+  max-width: 500px;
   margin: 10px auto;
 }
 

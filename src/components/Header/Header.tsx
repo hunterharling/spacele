@@ -69,15 +69,15 @@ const Header = ({ statistics }: { statistics: Stat }) => {
           <div className="wrap">
             <div className="stat">
               <span>
-                {statistics.attemptsToday === 0 ? 0 :
-                  statistics.guessesToday / statistics.attemptsToday}
+                {statistics.triesToday === 0 ? 0 :
+                  (statistics.guessesToday*100 / statistics.triesToday).toFixed(1)}%
               </span>
-              <p>Percent Correct Today</p>
+              <p>Correct Today</p>
             </div>
             <div className="stat">
               <span>
                 {statistics.triesToday === 0 ? 0 :
-                  statistics.attemptsToday / statistics.triesToday}
+                  (statistics.attemptsToday / statistics.triesToday).toFixed(1)}
               </span>
               <p>Avg. Guesses Today</p>
             </div>
@@ -86,8 +86,16 @@ const Header = ({ statistics }: { statistics: Stat }) => {
               <p>Guesses Today</p>
             </div>
             <div className="stat">
+              <span>{statistics.triesToday}</span>
+              <p>Tries Today</p>
+            </div>
+            <div className="stat">
               <span>{statistics.totalAttempts}</span>
               <p>Total Guesses</p>
+            </div>
+            <div className="stat">
+              <span>{statistics.totalTries}</span>
+              <p>Total Tries</p>
             </div>
           </div>
         </div>}
