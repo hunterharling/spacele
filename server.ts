@@ -21,13 +21,7 @@ const whitelist = [
 ];
 
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: process.env.URL,
   methods: ['GET', 'PUT', 'POST'],
   allowHeaders: ['Content-Type', 'Authorization']
 };
