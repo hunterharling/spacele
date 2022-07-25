@@ -1,4 +1,4 @@
-# Astrole
+# Spacele
 ### Wordle for Astronomy
 
 This is an app like Wordle, but for guessing deep sky objects based on an image.

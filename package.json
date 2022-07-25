@@ -1,5 +1,5 @@
 {
-  "name": "astrole",
+  "name": "spacele",
   "version": "0.1.0",
   "description": "Wordle for Astronomy",
   "author": "Hunter Harling",
@@ -7,7 +7,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hunterharling/astrole.git"
+    "url": "git+https://github.com/hunterharling/spacele.git"
   },
   "dependencies": {
     "@types/node": "^16.11.45",
