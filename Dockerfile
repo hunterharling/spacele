@@ -10,4 +10,6 @@ COPY . /app/
 
 RUN npm run build
 
+RUN npx tsc server.ts 
+
 CMD [ "npm", "start" ]
