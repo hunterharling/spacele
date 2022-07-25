@@ -29,7 +29,7 @@ function App() {
   });
 
   useEffect(() => {
-    axios.get("http://localhost:3080/api/stats/").then(res => {
+    axios.get(window.location.origin+"/api/stats/").then(res => {
       console.log(res);
       console.log("data^^^")
       setStatistics(res.data)

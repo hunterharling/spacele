@@ -30,7 +30,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
   }, []);
 
   const updateStats = (correctGuess: number) => {
-    axios.put("http://localhost:3080/api/stats/update/" + statistics._id, {
+    axios.put(window.location.origin+"/api/stats/update/" + statistics._id, {
       'attemptsToday': tries + 1,
       'totalAttempts': tries + 1,
       'guessesToday': correctGuess,
@@ -43,7 +43,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
   }
 
   const resetDailyStats = () => {
-    axios.put("http://localhost:3080/api/stats/reset/" + statistics._id, {
+    axios.put(window.location.origin+"/api/stats/reset/" + statistics._id, {
       'attemptsToday': 0,
       'guessesToday': 0,
       'triesToday': 0,

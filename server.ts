@@ -9,7 +9,7 @@ import "dotenv/config";
 // App
 const app = express();
 const HOST = 'localhost';
-const PORT = 3080;
+const { PORT="3000" } = process.env
 
 // CORS and bodyParser
 app.use(cors());
