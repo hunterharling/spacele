@@ -2,13 +2,16 @@ import astrodb from "../../astrodb";
 import Fuse from "fuse.js"
 import { useState } from "react";
 import "./Guesses.css";
+import axios from "axios";
+import { Stat } from "../../App";
 
 interface SearchProps {
   obj: string;
+  statistics: Stat;
 }
 
 // Searches DSOs for input
-const Search = ({ obj }: SearchProps) => {
+const Search = ({ obj, statistics }: SearchProps) => {
   const [results, setResults] = useState<string[]>([]);
   const [selections, setSelections] = useState<string[]>([]);
 
@@ -16,6 +19,16 @@ const Search = ({ obj }: SearchProps) => {
   const [isOpen, setOpen] = useState(false);
 
   const [tries, setTries] = useState(0);
+
+  const updateStats = (correctGuess: number) => {
+    axios.put("http://localhost:3080/api/stats/update/" + statistics._id, {
+      'attemptsToday': tries + 1,
+      'totalAttempts': tries + 1,
+      'guessesToday': correctGuess
+    }).then(res => {
+      console.log(res)
+    });
+  }
 
   const showOptions = (choice: string) => {
     setOpen(true);
@@ -36,11 +49,11 @@ const Search = ({ obj }: SearchProps) => {
 
     if (tries === 5) {
       setTries(6);
-      // export tries
+      updateStats(0);
     }
     else if (choice === obj) {
       setIsCorrect(true);
-      // TODO: export tries to db for stats
+      updateStats(1);
     }
     else {
       setTries(tries + 1);

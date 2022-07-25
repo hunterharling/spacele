@@ -7,9 +7,9 @@ interface Stats {
 }
 
 let schema = new mongoose.Schema<Stats>({
-  attemptsToday: {type: Number, required: true },
-  guessesToday:  {type: Number, required: true },
-  totalAttempts:  {type: Number, required: true },
+  attemptsToday: { type: Number, required: true },
+  guessesToday: { type: Number, required: true },
+  totalAttempts: { type: Number, required: true },
 });
 
 const Statistic = mongoose.model<Stats>("Statistic", schema);

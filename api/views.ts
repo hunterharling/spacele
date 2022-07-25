@@ -21,8 +21,8 @@ export const createStat = (req: Request, res: Response) => {
     });
 }
 
-export const getStat = (res: Response) => {
-  Statistic.findOne({_id: 0})
+export const getStat = (req: Request, res: Response) => {
+  Statistic.findById("62ddfe275b5b39a190b76be5")
     .then(data => {
       res.send(data);
     })
@@ -38,9 +38,7 @@ export const updateStat = (req: Request, res: Response) => {
     });
   }
 
-  const id = 0;
-
-  Statistic.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Statistic.findByIdAndUpdate({_id: req.params.id}, {$inc: req.body})
     .then(data => {
       if (data) {
         res.send({ message: "Updated" });

@@ -1,32 +1,10 @@
 import "./Header.css";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import { Stat } from "../../App";
 
-interface Stat {
-  attemptsToday: number;
-  guessesToday: number;
-  totalAttempts: number;
-  __v: number;
-  _id: string;
-}
-
-const Header = () => {
+const Header = ({ statistics }: { statistics: Stat }) => {
   const [info, showInfo] = useState(false);
   const [stats, showStats] = useState(false);
-  const [statistics, setStatistics] = useState<Stat>({
-    attemptsToday: 0,
-    guessesToday: 0,
-    totalAttempts: 0,
-    __v: 0,
-    _id: ""
-  });
-
-  useEffect(() => {
-    axios.get("http://localhost:3080/api/stats/").then(res => {
-      console.log(res.data);
-      setStatistics(res.data)
-    });
-  }, [])
 
   return (
     <div className="header">
