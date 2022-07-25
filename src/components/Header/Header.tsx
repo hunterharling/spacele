@@ -72,15 +72,22 @@ const Header = ({ statistics }: { statistics: Stat }) => {
                 {statistics.attemptsToday === 0 ? 0 :
                   statistics.guessesToday / statistics.attemptsToday}
               </span>
-              <p>Avg. Guesses</p>
+              <p>Percent Correct Today</p>
+            </div>
+            <div className="stat">
+              <span>
+                {statistics.triesToday === 0 ? 0 :
+                  statistics.attemptsToday / statistics.triesToday}
+              </span>
+              <p>Avg. Guesses Today</p>
             </div>
             <div className="stat">
               <span>{statistics.attemptsToday}</span>
-              <p>Attempts Today</p>
+              <p>Guesses Today</p>
             </div>
             <div className="stat">
               <span>{statistics.totalAttempts}</span>
-              <p>Total Attempts</p>
+              <p>Total Guesses</p>
             </div>
           </div>
         </div>}

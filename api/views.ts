@@ -48,3 +48,21 @@ export const updateStat = (req: Request, res: Response) => {
       console.log(err)
     });
 }
+
+export const resetStat = (req: Request, res: Response) => {
+  if (!req.body) {
+    return res.send({
+      message: "Update data required"
+    });
+  }
+
+  Statistic.findByIdAndUpdate({_id: "62ddfe275b5b39a190b76be5"}, req.body, {useFindAndModify: false})
+    .then(data => {
+      if (data) {
+        res.send({ message: "Updated" });
+      }
+    })
+    .catch(err => {
+      console.log(err)
+    });
+}

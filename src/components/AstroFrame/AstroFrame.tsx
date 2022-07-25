@@ -29,7 +29,7 @@ const AstroFrame = ({ statistics }: { statistics: Stat }) => {
         <div className="screen"></div>
         <div id="aladin-lite-div" ></div>
       </div>
-      <Search obj={obj} statistics={statistics} />
+      <Search obj={obj} statistics={statistics} day={objIndex} />
     </>
   );
 }

@@ -9,6 +9,9 @@ export interface Stat {
   attemptsToday: number;
   guessesToday: number;
   totalAttempts: number;
+  day: number;
+  triesToday: number;
+  totalTries: number;
   __v: number;
   _id: string;
 }
@@ -18,6 +21,9 @@ function App() {
     attemptsToday: 0,
     guessesToday: 0,
     totalAttempts: 0,
+    triesToday: 0,
+    totalTries: 0,
+    day: 0,
     __v: 0,
     _id: ""
   });

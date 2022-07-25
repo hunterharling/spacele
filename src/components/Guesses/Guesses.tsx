@@ -1,6 +1,6 @@
 import astrodb from "../../astrodb";
 import Fuse from "fuse.js"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Guesses.css";
 import axios from "axios";
 import { Stat } from "../../App";
@@ -8,10 +8,11 @@ import { Stat } from "../../App";
 interface SearchProps {
   obj: string;
   statistics: Stat;
+  day: number;
 }
 
 // Searches DSOs for input
-const Search = ({ obj, statistics }: SearchProps) => {
+const Search = ({ obj, statistics, day }: SearchProps) => {
   const [results, setResults] = useState<string[]>([]);
   const [selections, setSelections] = useState<string[]>([]);
 
@@ -20,14 +21,33 @@ const Search = ({ obj, statistics }: SearchProps) => {
 
   const [tries, setTries] = useState(0);
 
+  useEffect(() => {
+    // Reset value each day
+    if (statistics.day !== 0 && day !== statistics.day) {
+      resetDailyStats();
+      console.log("prev day:"+statistics.day+" new day"+day)
+    }
+  }, []);
+
   const updateStats = (correctGuess: number) => {
     axios.put("http://localhost:3080/api/stats/update/" + statistics._id, {
       'attemptsToday': tries + 1,
       'totalAttempts': tries + 1,
-      'guessesToday': correctGuess
+      'guessesToday': correctGuess,
+      'triesToday': 1,
+      'totalTries': 1,
+      'day': day
     }).then(res => {
-      console.log(res)
+      console.log(res);
     });
+  }
+
+  const resetDailyStats = () => {
+    axios.put("http://localhost:3080/api/stats/reset/" + statistics._id, {
+      'attemptsToday': 0,
+      'guessesToday': 0,
+      'triesToday': 0,
+    })
   }
 
   const showOptions = (choice: string) => {
