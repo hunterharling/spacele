@@ -1,9 +1,32 @@
 import "./Header.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+interface Stat {
+  attemptsToday: number;
+  guessesToday: number;
+  totalAttempts: number;
+  __v: number;
+  _id: string;
+}
 
 const Header = () => {
   const [info, showInfo] = useState(false);
   const [stats, showStats] = useState(false);
+  const [statistics, setStatistics] = useState<Stat>({
+    attemptsToday: 0,
+    guessesToday: 0,
+    totalAttempts: 0,
+    __v: 0,
+    _id: ""
+  });
+
+  useEffect(() => {
+    axios.get("http://localhost:3080/api/stats/").then(res => {
+      console.log(res.data);
+      setStatistics(res.data)
+    });
+  }, [])
 
   return (
     <div className="header">
@@ -27,9 +50,9 @@ const Header = () => {
           <div className="content">
             <p>
               This is an app like {" "}
-              <a 
-                rel="noopener noreferrer" 
-                target="_blank" 
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
                 href="https://www.nytimes.com/games/wordle/index.html">
                 Wordle
               </a>,
@@ -42,17 +65,17 @@ const Header = () => {
             <div className="divider">A new deep sky object is selected each day.</div>
             <div className="divider">
               This app was made by {" "}
-              <a 
-                rel="noopener noreferrer" 
-                target="_blank" 
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
                 href="https://github.com/hunterharling">
                 @hunterharling
               </a>
               <br /><br />
               GitHub repository: {" "}
-              <a 
-                rel="noopener noreferrer" 
-                target="_blank" 
+              <a
+                rel="noopener noreferrer"
+                target="_blank"
                 href="https://github.com/hunterharling/astro-guesser">
                 Astro Guesser
               </a>
@@ -67,15 +90,18 @@ const Header = () => {
           </div>
           <div className="wrap">
             <div className="stat">
-              <span>4</span>
+              <span>
+                {statistics.attemptsToday === 0 ? 0 :
+                  statistics.guessesToday / statistics.attemptsToday}
+              </span>
               <p>Avg. Guesses</p>
             </div>
             <div className="stat">
-              <span>35</span>
+              <span>{statistics.attemptsToday}</span>
               <p>Attempts Today</p>
             </div>
             <div className="stat">
-              <span>35</span>
+              <span>{statistics.totalAttempts}</span>
               <p>Total Attempts</p>
             </div>
           </div>
