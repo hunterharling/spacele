@@ -31,7 +31,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
       localStorage.setItem("completed", "false");
     }
     else {
-      if(localStorage.getItem("completed") == "true"){
+      if(localStorage.getItem("completed") === "true"){
         setIsCorrect(true);
       }
     }
@@ -95,7 +95,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
     <div className="search">
       <div className="selections">
         {selections.map(s =>
-          <div className={"selection"+ (s==obj ? " correct" : "")} key={s}>
+          <div className={"selection"+ (s === obj ? " correct" : "")} key={s}>
             {s}
           </div>)}
       </div>

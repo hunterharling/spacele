@@ -17,6 +17,7 @@ input, .selection, .result {
 
 input {
   width: 310px;
+  font-size: 16px;
 }
 
 input:focus {
