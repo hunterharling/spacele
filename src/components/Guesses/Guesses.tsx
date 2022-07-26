@@ -28,6 +28,12 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
     if (statistics.day !== 0 && day !== statistics.day) {
       resetDailyStats();
       console.log("prev day:"+statistics.day+" new day"+day)
+      localStorage.setItem("completed", "false");
+    }
+    else {
+      if(localStorage.getItem("completed") == "true"){
+        setIsCorrect(true);
+      }
     }
   }, []);
 
@@ -76,6 +82,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
     else if (choice === obj) {
       setIsCorrect(true);
       updateStats(1);
+      localStorage.setItem("completed", "true");
     }
     else {
       setTries(tries + 1);
@@ -97,7 +104,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
         type="text"
         placeholder="Pick a deep sky object..."
         onKeyUp={(e) => showOptions(e.target.value)} />
-      {(isOpen && tries < 6 && results.length > 0) &&
+      {(isOpen && !isCorrect && tries < 6 && results.length > 0) &&
         <div className="results">
           {results.map(r =>
             <div
