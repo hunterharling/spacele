@@ -57,3 +57,11 @@ input:focus {
   border-radius: 0%;
   border-bottom: 1px solid var(--background);
 }
+
+.correct {
+  color: rgb(47, 104, 228);
+}
+
+h3.correct {
+  margin-top: 15px;
+}

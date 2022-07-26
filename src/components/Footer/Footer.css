@@ -1,6 +1,6 @@
 .footer{
   height: 60px;
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
   border-top: 1px solid var(--line-color);
