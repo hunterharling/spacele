@@ -44,7 +44,6 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
       'guessesToday': correctGuess,
       'triesToday': 1,
       'totalTries': 1,
-      'day': day
     }).then(res => {
       console.log(res);
     });
@@ -55,6 +54,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
       'attemptsToday': 0,
       'guessesToday': 0,
       'triesToday': 0,
+      'day': day
     })
   }
 
@@ -78,6 +78,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
     if (tries === 5) {
       setTries(6);
       updateStats(0);
+      localStorage.setItem("completed", "no");
     }
     else if (choice === obj) {
       setIsCorrect(true);
@@ -114,7 +115,8 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
               {r}
             </div>)}
         </div>}
-      {tries > 5 && <h3>This deep sky object is {obj}.</h3>}
+      {(localStorage.getItem("completed") === "no" || 
+        tries > 5) && <h3>This deep sky object is {obj}.</h3>}
       {isCorrect && <h3 className="correct">Correct! This deep sky object is {obj}.</h3>}
     </div>
   );
