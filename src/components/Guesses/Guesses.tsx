@@ -67,7 +67,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
     let newRes: Array<string> = [];
     searchResults.map(r => {
       newRes.push(r.item);
-    })
+    });
 
     setResults(newRes);
   }
@@ -115,8 +115,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
               {r}
             </div>)}
         </div>}
-      {(localStorage.getItem("completed") === "no" || 
-        tries > 5) && <h3>This deep sky object is {obj}.</h3>}
+      {(tries > 5) && <h3>This deep sky object is {obj}.</h3>}
       {isCorrect && <h3 className="correct">Correct! This deep sky object is {obj}.</h3>}
     </div>
   );
