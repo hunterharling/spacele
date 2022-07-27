@@ -31,7 +31,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
       localStorage.setItem("completed", "false");
     }
     else {
-      if(localStorage.getItem("completed") === "true"){
+      if(localStorage.getItem("completed") === obj){
         setIsCorrect(true);
       }
     }
@@ -82,7 +82,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
     else if (choice === obj) {
       setIsCorrect(true);
       updateStats(1);
-      localStorage.setItem("completed", "true");
+      localStorage.setItem("completed", obj);
     }
     else {
       setTries(tries + 1);
