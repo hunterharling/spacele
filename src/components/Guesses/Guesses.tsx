@@ -25,9 +25,9 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
 
   useEffect(() => {
     // Reset value each day
+    console.log("day: " + day);
     if (statistics.day !== 0 && day !== statistics.day) {
       resetDailyStats();
-      console.log("prev day:" + statistics.day + " new day" + day)
       localStorage.setItem("completed", "false");
     }
     else {
@@ -35,7 +35,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
         setIsCorrect(true);
       }
     }
-  }, []);
+  }, [statistics.day]);
 
   const updateStats = (correctGuess: number) => {
     axios.put(window.location.origin + "/api/stats/update/" + statistics._id, {
@@ -44,19 +44,16 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
       'guessesToday': correctGuess,
       'triesToday': 1,
       'totalTries': 1,
-    }).then(res => {
-      console.log(res);
     });
   }
 
   const resetDailyStats = () => {
-    axios.put(window.location.origin + "/api/stats/reset/" + statistics._id, {
+    axios.put(window.location.origin + "/api/stats/reset", {
       'attemptsToday': 0,
       'guessesToday': 0,
       'triesToday': 0,
       'day': day
     });
-    console.log("daily reset");
   }
 
   const showOptions = (choice: string) => {
@@ -117,7 +114,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
             </div>)}
         </div>}
       {(tries > 5) && <h3>This deep sky object is {obj}.</h3>}
-      {(tries > 1 && tries < 6 && !isCorrect) && <h3>{6 - tries} tries left</h3>}
+      {(tries > 0 && tries < 6 && !isCorrect) && <h3>{6 - tries} tries left</h3>}
       {isCorrect && <h3 className="correct">Correct! This deep sky object is {obj}.</h3>}
     </div>
   );

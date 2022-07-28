@@ -56,7 +56,7 @@ export const resetStat = (req: Request, res: Response) => {
     });
   }
 
-  Statistic.findByIdAndUpdate({_id: "62ddfe275b5b39a190b76be5"}, req.body, {useFindAndModify: false})
+  Statistic.findOneAndUpdate({_id: "62ddfe275b5b39a190b76be5"}, {"$set": req.body})
     .then(data => {
       if (data) {
         res.send({ message: "Updated" });
