@@ -8,6 +8,7 @@ const Header = ({ statistics }: { statistics: Stat }) => {
 
   return (
     <div className="header">
+      <div className="space"></div>
       <h1>SPACE<span>LE</span></h1>
       <div className="btns">
         <button className="info" onClick={() => showInfo(!info)}>

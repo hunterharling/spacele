@@ -14,40 +14,6 @@ body {
   overflow-y: scroll;
 }
 
-.header {
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid var(--line-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.header h1 {
-  font-size: 22px;
-}
-
-h1 span {
-  color: rgb(47, 104, 228);
-}
-
-.btns {
-  position: absolute;
-  right: 0;
-  margin-right: 25px;
-  display: flex;
-  align-items: center;
-  column-gap: 10px;
-}
-
-.btns button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 25px;
-}
-
 h3 {
   color: var(--dark-text);
   margin-bottom: 20px;
@@ -59,7 +25,7 @@ h3 {
 .container {
   margin: 0 auto;
   width: max-content;
-  min-height: calc(100% - 200px);
+  min-height: calc(100% - 180px);
   padding-bottom: 60px;
 }
 
@@ -77,11 +43,15 @@ h3 {
   }
 
   .btns {
-    column-gap: 1px;
+    column-gap: 0px !important;
+    margin-right: 15px !important;
+  }
+  .space {
+    margin-left: 15px !important;
   }
   
   .btns button {
-    font-size: 22px;
+    font-size: 22px !important;
   }
 
   .container {

@@ -1,5 +1,37 @@
 .header {
   position: relative;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid var(--line-color);
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header h1 {
+  font-size: 22px;
+}
+
+h1 span {
+  color: rgb(47, 104, 228);
+}
+
+.btns {
+  position: relative;
+  right: 0;
+  margin-right: 25px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.btns button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
 }
 
 a {
@@ -76,4 +108,9 @@ a {
 
 .btns {
   max-width: 85px;
+}
+
+.space {
+  width: 85px;
+  margin-left: 25px;
 }
