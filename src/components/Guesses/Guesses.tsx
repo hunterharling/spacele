@@ -27,18 +27,18 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
     // Reset value each day
     if (statistics.day !== 0 && day !== statistics.day) {
       resetDailyStats();
-      console.log("prev day:"+statistics.day+" new day"+day)
+      console.log("prev day:" + statistics.day + " new day" + day)
       localStorage.setItem("completed", "false");
     }
     else {
-      if(localStorage.getItem("completed") === obj){
+      if (localStorage.getItem("completed") === obj) {
         setIsCorrect(true);
       }
     }
   }, []);
 
   const updateStats = (correctGuess: number) => {
-    axios.put(window.location.origin+"/api/stats/update/" + statistics._id, {
+    axios.put(window.location.origin + "/api/stats/update/" + statistics._id, {
       'attemptsToday': tries + 1,
       'totalAttempts': tries + 1,
       'guessesToday': correctGuess,
@@ -50,12 +50,13 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
   }
 
   const resetDailyStats = () => {
-    axios.put(window.location.origin+"/api/stats/reset/" + statistics._id, {
+    axios.put(window.location.origin + "/api/stats/reset/" + statistics._id, {
       'attemptsToday': 0,
       'guessesToday': 0,
       'triesToday': 0,
       'day': day
-    })
+    });
+    console.log("daily reset");
   }
 
   const showOptions = (choice: string) => {
@@ -96,7 +97,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
     <div className="search">
       <div className="selections">
         {selections.map(s =>
-          <div className={"selection"+ (s === obj ? " correct" : "")} key={s}>
+          <div className={"selection" + (s === obj ? " correct" : "")} key={s}>
             {s}
           </div>)}
       </div>
@@ -116,6 +117,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
             </div>)}
         </div>}
       {(tries > 5) && <h3>This deep sky object is {obj}.</h3>}
+      {(tries > 1 && tries < 6 && !isCorrect) && <h3>{6 - tries} tries left</h3>}
       {isCorrect && <h3 className="correct">Correct! This deep sky object is {obj}.</h3>}
     </div>
   );
