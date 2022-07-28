@@ -30,9 +30,7 @@ function App() {
 
   useEffect(() => {
     axios.get(window.location.origin+"/api/stats/").then(res => {
-      console.log(res);
-      console.log("data^^^")
-      setStatistics(res.data)
+      setStatistics(res.data);
     });
   }, [])
 

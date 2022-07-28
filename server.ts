@@ -49,6 +49,5 @@ routes(app);
 
 // Main
 app.use('*', (req, res) => {
-  console.log(req);
   res.sendFile(path.join(__dirname, '/build', 'index.html'));
 });

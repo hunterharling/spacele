@@ -18,7 +18,6 @@ const obj = astrodb[objIndex];
 // Renders a sky-map iframe of dso object
 const AstroFrame = ({ statistics }: { statistics: Stat }) => {
   useEffect(() => {
-    console.log(obj);
     // Necessary to initiate aladin sky chart
     eval(`var aladin = A.aladin('#aladin-lite-div', { survey: "P/DSS2/color", fov: 1, target: "${obj}" });`);
   }, []);
