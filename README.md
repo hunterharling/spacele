@@ -22,8 +22,13 @@ npx tsc server.ts
 npm start
 ```
 
+Testing frontend:
+```sh
+npm run dev
+```
+
 Required environment variables (.env):
 ```sh
 DB_URL=<url of mongodb database>
-URL=<origin url for making requests ("http://localhost:3000")>
+URL="http://localhost:3001"
 ```

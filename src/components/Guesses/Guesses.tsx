@@ -9,10 +9,11 @@ interface SearchProps {
   obj: string;
   statistics: Stat;
   day: number;
+  URL: string;
 }
 
 // Searches DSOs for input
-const Search = ({ obj, statistics, day }: SearchProps) => {
+const Search = ({ obj, statistics, day, URL }: SearchProps) => {
   const [results, setResults] = useState<string[]>([]);
   const [selections, setSelections] = useState<string[]>([]);
 
@@ -38,7 +39,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
   }, [statistics.day]);
 
   const updateStats = (correctGuess: number) => {
-    axios.put(window.location.origin + "/api/stats/update/" + statistics._id, {
+    axios.put(URL + "/api/stats/update/" + statistics._id, {
       'attemptsToday': tries + 1,
       'totalAttempts': tries + 1,
       'guessesToday': correctGuess,
@@ -48,7 +49,7 @@ const Search = ({ obj, statistics, day }: SearchProps) => {
   }
 
   const resetDailyStats = () => {
-    axios.put(window.location.origin + "/api/stats/reset", {
+    axios.put(URL + "/api/stats/reset", {
       'attemptsToday': 0,
       'guessesToday': 0,
       'triesToday': 0,

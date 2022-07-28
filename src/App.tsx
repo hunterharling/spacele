@@ -28,8 +28,10 @@ function App() {
     _id: ""
   });
 
+  const URL = window.location.origin.includes("3001") ? "http://localhost:3000" : window.location.origin;
+
   useEffect(() => {
-    axios.get(window.location.origin+"/api/stats/").then(res => {
+    axios.get(URL + "/api/stats/").then(res => {
       setStatistics(res.data);
     });
   }, [])
@@ -39,7 +41,7 @@ function App() {
       <Header statistics={statistics} />
       <h3>Guess which deep sky object this is!</h3>
       <div className="container">
-        <AstroFrame statistics={statistics} />
+        <AstroFrame statistics={statistics} URL={URL} />
       </div>
       <Footer />
     </div>

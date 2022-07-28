@@ -4,6 +4,11 @@ import { useEffect } from "react";
 import Search from "../Guesses/Guesses";
 import { Stat } from "../../App";
 
+interface AstroFrameTypes {
+  statistics: Stat;
+  URL: string;
+}
+
 // Create offset for fixed date
 const offsetFromDate = new Date(2022, 0, 1);
 const today = new Date();
@@ -16,7 +21,7 @@ const objIndex = Math.floor(dayOffset % 222);
 const obj = astrodb[objIndex];
 
 // Renders a sky-map iframe of dso object
-const AstroFrame = ({ statistics }: { statistics: Stat }) => {
+const AstroFrame = ({ statistics, URL }: AstroFrameTypes) => {
   useEffect(() => {
     // Necessary to initiate aladin sky chart
     eval(`var aladin = A.aladin('#aladin-lite-div', { survey: "P/DSS2/color", fov: 1, target: "${obj}" });`);
@@ -28,7 +33,7 @@ const AstroFrame = ({ statistics }: { statistics: Stat }) => {
         <div className="screen"></div>
         <div id="aladin-lite-div" ></div>
       </div>
-      <Search obj={obj} statistics={statistics} day={objIndex} />
+      <Search obj={obj} statistics={statistics} day={objIndex} URL={URL} />
     </>
   );
 }
