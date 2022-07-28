@@ -30,15 +30,21 @@ const Search = ({ obj, statistics, day, URL }: SearchProps) => {
     if (statistics.day !== 0 && day !== statistics.day) {
       resetDailyStats();
       localStorage.setItem("completed", "false");
+      localStorage.setItem("guesses", JSON.stringify([]));
     }
     else {
       if (localStorage.getItem("completed") === obj) {
         setIsCorrect(true);
       }
+
+      // Fetch previous guesses
+      const prevGuesses = localStorage.getItem("guesses") || "[]";
+      setSelections(JSON.parse(prevGuesses));
+      setTries(JSON.parse(prevGuesses).length);
     }
   }, [statistics.day]);
 
-  const updateStats = (correctGuess: number) => {
+  const updateStats = (correctGuess: number, choice: string) => {
     axios.put(URL + "/api/stats/update/" + statistics._id, {
       'attemptsToday': tries + 1,
       'totalAttempts': tries + 1,
@@ -46,6 +52,9 @@ const Search = ({ obj, statistics, day, URL }: SearchProps) => {
       'triesToday': 1,
       'totalTries': 1,
     });
+
+    // Set previous guesses
+    localStorage.setItem("guesses", JSON.stringify([...selections, choice]));
   }
 
   const resetDailyStats = () => {
@@ -73,22 +82,22 @@ const Search = ({ obj, statistics, day, URL }: SearchProps) => {
 
   const checkSelection = (choice: string) => {
     setOpen(false);
+    setSelections([...selections, choice]);
+    inputRef.current!.value = "";
 
-    if (tries === 5) {
-      setTries(6);
-      updateStats(0);
-      localStorage.setItem("completed", "no");
-    }
-    else if (choice === obj) {
+    if (choice === obj) {
       setIsCorrect(true);
-      updateStats(1);
+      updateStats(1, choice);
       localStorage.setItem("completed", obj);
+    }
+    else if (tries === 5) {
+      setTries(6);
+      updateStats(0, choice);
+      localStorage.setItem("completed", "no");
     }
     else {
       setTries(tries + 1);
     }
-    setSelections([...selections, choice]);
-    inputRef.current!.value = "";
   }
 
   return (
@@ -114,7 +123,7 @@ const Search = ({ obj, statistics, day, URL }: SearchProps) => {
               {r}
             </div>)}
         </div>}
-      {(tries > 5) && <h3>This deep sky object is {obj}.</h3>}
+      {((tries > 5) && !isCorrect) && <h3>This deep sky object is {obj}.</h3>}
       {(tries > 0 && tries < 6 && !isCorrect) && <h3>{6 - tries} tries left</h3>}
       {isCorrect && <h3 className="correct">Correct! This deep sky object is {obj}.</h3>}
     </div>
