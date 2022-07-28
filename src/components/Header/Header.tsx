@@ -47,15 +47,15 @@ const Header = ({ statistics }: { statistics: Stat }) => {
                 rel="noopener noreferrer"
                 target="_blank"
                 href="https://github.com/hunterharling">
-                @hunterharling
+                Hunter Harling
               </a>
               <br /><br />
               GitHub repository: {" "}
               <a
                 rel="noopener noreferrer"
                 target="_blank"
-                href="https://github.com/hunterharling/astro-guesser">
-                Astro Guesser
+                href="https://github.com/hunterharling/spacele">
+                Spacele
               </a>
             </div>
           </div>

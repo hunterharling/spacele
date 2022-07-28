@@ -7,7 +7,7 @@ const Footer = () => {
       <a
         rel="noopener noreferrer" 
         target="_blank"
-        href="https://github.com/hunterharling/astro-guesser">
+        href="https://github.com/hunterharling/spacele">
         <span>{" <"}</span>
         github.com/hunterharling
         <span>{">"}</span>

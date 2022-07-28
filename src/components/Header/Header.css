@@ -65,6 +65,7 @@ a {
 .information .content {
   max-width: 500px;
   margin: 10px auto;
+  padding: 0 10px;
 }
 
 .divider {
