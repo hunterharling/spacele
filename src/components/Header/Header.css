@@ -73,3 +73,7 @@ a {
   padding-top: 15px;
   border-top: 1px solid var(--line-color);
 }
+
+.btns {
+  max-width: 85px;
+}

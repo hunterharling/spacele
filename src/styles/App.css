@@ -76,6 +76,10 @@ h3 {
     margin-top: 10px;
   }
 
+  .btns {
+    column-gap: 1px;
+  }
+  
   .btns button {
     font-size: 22px;
   }
