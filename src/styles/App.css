@@ -45,11 +45,12 @@ h3 {
   }
 
   .btns {
-    column-gap: 0px !important;
-    margin-right: 15px !important;
+    column-gap: 10px !important;
+    max-width: 75px !important;
   }
+  
   .space {
-    margin-left: 15px !important;
+    max-width: 75px !important;
   }
   
   .btns button {

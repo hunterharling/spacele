@@ -6,8 +6,6 @@
   text-align: center;
   border-bottom: 1px solid var(--line-color);
   display: flex;
-  align-items: center;
-  position: relative;
 }
 
 .header h1 {
@@ -19,10 +17,11 @@ h1 span {
 }
 
 .btns {
-  margin-right: 25px;
   display: flex;
   align-items: center;
   column-gap: 10px;
+  padding-right: 15px;
+  width: 100px;
 }
 
 .btns button {
@@ -30,6 +29,8 @@ h1 span {
   border: none;
   cursor: pointer;
   font-size: 25px;
+  max-width: 35px;
+  padding: 0 !important;
 }
 
 a {
@@ -95,7 +96,7 @@ a {
 .information .content {
   max-width: 500px;
   margin: 10px auto;
-  padding: 0 10px;
+  padding: 0 20px;
 }
 
 .divider {
@@ -104,11 +105,6 @@ a {
   border-top: 1px solid var(--line-color);
 }
 
-.btns {
-  max-width: 85px;
-}
-
 .space {
-  width: 85px;
-  margin-left: 25px;
+  width: 100px;
 }
