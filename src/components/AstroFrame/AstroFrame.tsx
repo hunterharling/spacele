@@ -10,7 +10,7 @@ interface AstroFrameTypes {
 }
 
 // Create offset for fixed date
-const offsetFromDate = new Date(2022, 0, 1);
+const offsetFromDate = new Date(2022, 0, 2);
 const today = new Date();
 
 const msOffset = today.getTime() - offsetFromDate.getTime();
