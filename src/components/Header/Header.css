@@ -19,8 +19,6 @@ h1 span {
 }
 
 .btns {
-  position: relative;
-  right: 0;
   margin-right: 25px;
   display: flex;
   align-items: center;
