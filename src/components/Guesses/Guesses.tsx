@@ -29,7 +29,10 @@ const Search = ({ obj, statistics, day, URL }: SearchProps) => {
     console.log("day: " + day);
     if (statistics.day !== 0 && day !== statistics.day) {
       resetDailyStats();
+    }
+    if(!localStorage.getItem("obj") || localStorage.getItem("obj") !== obj){
       localStorage.setItem("completed", "false");
+      localStorage.setItem("obj", obj);
       localStorage.setItem("guesses", JSON.stringify([]));
     }
     else {
