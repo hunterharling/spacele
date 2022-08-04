@@ -12,14 +12,6 @@ const HOST = 'localhost';
 const { PORT="3000" } = process.env;
 
 // CORS and bodyParser
-const whitelist = [
-  "https://spacele.herokuapp.com",
-  "spacele.app", 
-  "www.spacele.app",
-  "https://spacele.app", 
-  "https://www.spacele.app"
-];
-
 const corsOptions = {
   origin: process.env.URL,
   methods: ['GET', 'PUT', 'POST'],
